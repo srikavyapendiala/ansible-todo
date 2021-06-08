@@ -1,0 +1,35 @@
+- name: Install dependencies
+  apt:
+    name: golang
+    update_cache: yes
+    state: present
+
+- name: Download login  from Nexus
+  get_url:
+    url: http://10.1.2.210:8081/repository/login/login-1.2.3.zip
+    dest: /root/login.zip
+    username: admin
+    password: admin
+
+- name: Unzip the Downloaded Content
+  unarchive:
+    src: /root/login.zip
+    dest: /root/
+    remote_src: yes
+
+- name: Copy login.Service from files
+  copy:
+    src: login.service
+    dest: /etc/systemd/system/login.service
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
+    remote_src: yes
+
+- name: Start login Service
+  systemd:
+    name: "login"
+    daemon_reload: yes
+    state: started
+    enabled: yes
