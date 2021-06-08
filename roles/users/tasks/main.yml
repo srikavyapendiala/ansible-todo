@@ -1,0 +1,32 @@
+- name: Install dependencies
+  apt:
+    name: "{{packages}}"
+    update_cache: yes
+    state: present
+
+- name: Download frontend from Nexus
+  get_url:
+    url: http://34.205.27.64:8081/repository/users/users-0.0.1.zip
+    dest: /root/users.zip
+    username: admin
+    password: admin
+
+- name: Unzip the Downloaded Content
+  unarchive:
+    src: /root/users.zip
+    dest: /root/
+    remote_src: yes
+
+
+- name: Copy {{COMPONENT}} Service file
+  copy:
+    src: "users.service"
+    dest: /etc/systemd/system/users.service
+    remote_src: yes
+
+- name: Start {{COMPONENT}} Service
+  systemd:
+    name: "users"
+    daemon_reload: yes
+    state: started
+    enabled: yes
