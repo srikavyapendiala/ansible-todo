@@ -25,7 +25,7 @@
 
 - name: Unzip the download content
   unarchive:
-    src: /root/frontend-todo.zip
+    src: /root/frontend.zip
     dest: /root/
     remote_src: yes
 
