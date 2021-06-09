@@ -9,7 +9,7 @@
     url: http://3.236.189.143:8081/repository/todo/todo-1.0.1.zip
     dest: /root/todo
     username: admin
-    password: admin
+    password: kavya
 
 - name: Unzip the Downloaded Content
   unarchive:
