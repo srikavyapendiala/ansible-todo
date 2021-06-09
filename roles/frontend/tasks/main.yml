@@ -21,7 +21,7 @@
     url: http://3.236.189.143:8081/repository/frontend-todo/frontend-todo-1.0.1.zip
     dest: /root/frontend-todo.zip
     username: admin
-    password: admin
+    password: kavya
 
 - name: Unzip the download content
   unarchive:
