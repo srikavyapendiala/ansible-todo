@@ -33,7 +33,7 @@
   replace:
     path: /etc/nginx/sites-available/default
     regexp: '/var/www/html'
-    replace: '/root/frontend/dist'
+    replace: '/var/www/html/vue/frontend/dist'
 
 - name: restart nginx
   systemd:
@@ -45,13 +45,13 @@
   replace:
     path: /root/config/index.js
     regexp: '127.0.0.1'
-    replace: 'login.srikavyapendiala.ml'
+    replace: 'login.kavya.website'
 
 - name: Replace content
   replace:
     path: /root/config/index.js
     regexp: '127.0.0.2'
-    replace: 'todo.srikavyapendiala.ml'
+    replace: 'todo.kavya.website'
 
 - name: To start npm
   shell: npm start
