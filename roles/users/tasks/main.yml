@@ -6,14 +6,14 @@
 
 - name: Download frontend from Nexus
   get_url:
-    url: http://34.205.27.64:8081/repository/users/users-0.0.1.zip
-    dest: /root/users.zip
+    url: http://3.236.189.143:8081/repository/users/users-1.0.1.zip
+    dest: /root/users
     username: admin
     password: admin
 
 - name: Unzip the Downloaded Content
   unarchive:
-    src: /root/users.zip
+    src: /root/users
     dest: /root/
     remote_src: yes
 
