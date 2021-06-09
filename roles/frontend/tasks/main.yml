@@ -39,7 +39,7 @@
   systemd:
     state: restarted
     name: nginx
-    enabled: yes
+    
 
 - name: Replace content
   replace:
