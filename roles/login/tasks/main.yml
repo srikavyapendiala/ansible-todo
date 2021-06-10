@@ -6,7 +6,7 @@
 
 - name: Download login  from Nexus
   get_url:
-    url: http://172.31.90.146:8081/repository/login/login-1.0.1.zip
+    url: http://172.31.7.43:8081/repository/login/login-1.0.1.zip
     dest: /root/login.zip
     username: admin
     password: kavya
