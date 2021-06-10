@@ -6,7 +6,7 @@
 
 - name: Download frontend from Nexus
   get_url:
-    url: http://3.236.189.143:8081/repository/users/users-1.0.1.zip
+    url: http://172.31.7.43:8081/repository/users/users-1.0.1.zip
     dest: /root/users
     username: admin
     password: kavya
