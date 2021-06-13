@@ -6,14 +6,14 @@
 
 - name: Download frontend from Nexus
   get_url:
-    url: http://34.205.27.64:8081/repository/todo/todo-0.0.3.zip
-    dest: /root/todo.zip
+    url: http://172.31.7.43:8081/repository/todo/todo-1.0.1.zip
+    dest: /root/todo
     username: admin
-    password: admin
+    password: kavya
 
 - name: Unzip the Downloaded Content
   unarchive:
-    src: /root/todo.zip
+    src: /root/todo
     dest: /root
     remote_src: yes
 

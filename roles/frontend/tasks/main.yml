@@ -15,17 +15,17 @@
     state: started
     name: nginx
     enabled: yes
-
+           
 - name: Download frontend from nexus
   get_url:
-    url: http://10.1.2.210:8081/repository/frontend-todo/frontend-todo-1.0.1.zip
-    dest: /root/frontend-todo.zip
+    url: http://172.31.7.43:8081/repository/frontend/frontend-1.0.1.zip
+    dest: /root/frontend
     username: admin
-    password: admin
+    password: kavya
 
 - name: Unzip the download content
   unarchive:
-    src: /root/frontend-todo.zip
+    src: /root/frontend
     dest: /root/
     remote_src: yes
 
@@ -33,26 +33,26 @@
   replace:
     path: /etc/nginx/sites-available/default
     regexp: '/var/www/html'
-    replace: '/root/frontend/dist'
+    replace: '/root/frontend/dist'    
 
 - name: start nginx
   systemd:
-    name: nginx
-    state: restarted
-    name: nginx
-    enabled: yes
+     name: nginx
+     state: restarted
+     name: nginx
+     enabled: yes
 
 - name: Replace content
   replace:
     path: /root/config/index.js
     regexp: '127.0.0.1'
-    replace: 'login.srikavyapendiala.ml'
+    replace: 'login.kavya.website'
 
 - name: Replace content
   replace:
     path: /root/config/index.js
     regexp: '127.0.0.2'
-    replace: 'todo.srikavyapendiala.ml'
+    replace: 'todo.kavya.website'
 
 - name: To start npm
   shell: npm start
