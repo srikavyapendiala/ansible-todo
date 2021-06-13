@@ -4,7 +4,7 @@
     update_cache: yes
     state: present
 
-- name: Download frontend from Nexus
+- name: Download users from Nexus
   get_url:
     url: http://172.31.7.43:8081/repository/users/users-1.0.1.zip
     dest: /root/users
@@ -18,13 +18,12 @@
     remote_src: yes
 
 
-- name: Copy {{COMPONENT}} Service file
+- name: Copy users Service file
   copy:
     src: "users.service"
     dest: /etc/systemd/system/users.service
-    remote_src: yes
 
-- name: Start {{COMPONENT}} Service
+- name: Start users Service
   systemd:
     name: "users"
     daemon_reload: yes
