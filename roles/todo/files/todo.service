@@ -2,10 +2,10 @@
 Description = todo Service
 [Service]
 
-Environment=REDIS_HOST=http://REDIS_ENDPOINT:8080
+Environment=ZIPKIN_URL=
+Environment=REDIS_HOST=http://redis.kavya.online:8080
 Environment=TODOS_API_PORT=8080
-ExecStart=bin/node /root/todo/server.js
-Restart=on-failure
+ExecStart=/bin/node /root/server.js
 SyslogIdentifier=login
 
 [Install]
