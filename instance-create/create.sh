@@ -15,7 +15,7 @@ Instance_Create() {
   INSTANCE_EXISTS=$(aws ec2 describe-instances --filters Name=tag:Name,Values=${COMPONENT}  | jq .Reservations[])
   STATE=$(aws ec2 describe-instances     --filters Name=tag:Name,Values=${COMPONENT}  | jq .Reservations[].Instances[].State.Name | xargs)
   if [ -z "${INSTANCE_EXISTS}" -o "$STATE" == "terminated"  ]; then
-    aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}, {Key=Project,Value=ROBOSHOP}]" | jq
+    aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}, {Key=Project,Value=TODOSHOP}]" | jq
   else
     echo "Instance ${COMPONENT} already exists"
   fi
@@ -30,7 +30,7 @@ Instance_Create() {
 }
 
 if [ "$1" == "all" ]; then
-  for instance in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
+  for instance in frontend login users todo redis; do
     Instance_Create $instance-dev
   done
 else
