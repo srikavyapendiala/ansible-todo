@@ -6,7 +6,7 @@
 
 - name: Download users from Nexus
   get_url:
-    url: http://172.31.7.43:8081/repository/users/users-1.0.1.zip
+    url: http://172.31.12.183:8081/repository/users/users-1.0.1.zip
     dest: /root/users
     username: admin
     password: kavya

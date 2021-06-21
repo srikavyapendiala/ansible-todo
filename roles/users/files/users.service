@@ -3,12 +3,12 @@ Description=user service
 
 [Service]
 
-#Environment=ZIPKIN_URL=http://172.31.7.43:9411/api/v2/spans
+#Environment=ZIPKIN_URL=http://172.31.12.183:9411/api/v2/spans
 Environment=AUTH_API_ADDRESS=http://login.kavya.website:8080
 Environment=AUTH_API_PORT=8080
-ExecStart=/root/users.jar
+ExecStart=/bin/java -jar /root/users.jar
 
-SyslogIdentifier=users
+SyslogIdentifier=user
 
 [Install]
 WantedBy=multi-user.target
