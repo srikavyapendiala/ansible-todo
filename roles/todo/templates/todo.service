@@ -2,9 +2,9 @@
 Description = todo Service
 
 [Service]
-Environment=REDIS_HOST=http://redis-{{ENV}}.kavya.website:8080
+Environment=REDIS_HOST=http://redis-dev.kavya.website:8080
 Environment=TODOS_API_PORT=8080
-ExecStart=/bin/node /home/Ubuntu/todo/server.js
+ExecStart=/bin/node /home/ubuntu/todo/server.js
 Restart=on-failure
 SyslogIdentifier=login
 
