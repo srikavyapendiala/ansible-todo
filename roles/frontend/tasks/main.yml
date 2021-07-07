@@ -32,8 +32,8 @@
 
 - name: Update Todoshop Config file
   template:
-    src: todo.conf
-    dest: /etc/nginx/sites-enabled/todo.conf
+    src: todoapp.conf
+    dest: /etc/nginx/sites-enabled/todoapp.conf
   
 - name: Start Nginx
   systemd:
