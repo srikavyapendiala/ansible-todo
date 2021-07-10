@@ -3,7 +3,6 @@
     src: "{{COMPONENT}}.service"
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
-
 - name: Start {{COMPONENT}} Service
   systemd:
     name: "{{COMPONENT}}"
