@@ -2,7 +2,7 @@
   include_role:
     name: common
     tasks_from: nodejs
- - name: Install Node Exporter Prometheus Monitoring
+- name: Install Node Exporter Prometheus Monitoring
   include_role:
     name: common
     tasks_from: node_exporter
