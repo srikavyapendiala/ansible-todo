@@ -14,6 +14,7 @@
   include_role:
     name: common
     tasks_from: node_exporter
+    
 - name: Install Filebeat Monitoring
   include_role:
     name: common
@@ -21,3 +22,4 @@
   vars:
     IS_STRUCTURED: true
     LOG_FILES:
+      - { file: "/var/log/{{COMPONENT}}.log", type: "{{COMPONENT}}" }
