@@ -11,8 +11,8 @@ filebeat.inputs:
 output.elasticsearch:
   hosts: ["172.31.8.44:9200"]
 {% else %}
- output.logstash:
-   hosts: ["172.31.8.44:5044"]
+output.logstash:
+  hosts: ["172.31.8.44:5044"]
  {% endif %}
  
 ## These always are defaults
