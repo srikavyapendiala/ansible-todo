@@ -6,7 +6,7 @@ filebeat.inputs:
     - {{ log_filename.file }}
   fields:
     logType: {{ log_filename.type }}
-
+{% endfor %}
 {% if IS_STRUCTURED %}
 output.elasticsearch:
   hosts: ["172.31.8.44:9200"]
@@ -14,6 +14,7 @@ output.elasticsearch:
  output.logstash:
    hosts: ["172.31.8.44:5044"]
  {% endif %}
+ 
 ## These always are defaults
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
