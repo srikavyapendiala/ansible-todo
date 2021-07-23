@@ -20,7 +20,6 @@
     name: common
     tasks_from: filebeat
   vars:
-    IS_STRUCTURED: true
-    IS_NODEJS: true
+    IS_STRUCTURED: false
     LOG_FILES:
       - { file: "/var/log/{{COMPONENT}}.log", type: "{{COMPONENT}}" }
